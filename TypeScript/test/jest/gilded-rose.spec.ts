@@ -35,12 +35,12 @@ describe('Gilded Rose',() =>{
 
 describe('Gilded Rose',() =>{
   it('Quality should not exceed 50', () => {
-    const gildedRose = new GildedRose([new Item('Aged Brie',0,50), new Item('Backstage passes to a TAFKAL80ETC concert',0,50), new Item('Backstage passes to a TAFKAL80ETC concert',0,49), new Item('Backstage passes to a TAFKAL80ETC concert',0,48)]);
+    const gildedRose = new GildedRose([new Item('Aged Brie',0,50), new Item('Backstage passes to a TAFKAL80ETC concert',1,50), new Item('Backstage passes to a TAFKAL80ETC concert',1,49), new Item('Backstage passes to a TAFKAL80ETC concert',1,48)]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toBe(50);
-    expect(items[1].quality).toBe(0);
-    expect(items[2].quality).toBe(0);
-    expect(items[3].quality).toBe(0);
+    expect(items[1].quality).toBe(50);
+    expect(items[2].quality).toBe(50);
+    expect(items[3].quality).toBe(50);
   });
 });
 
