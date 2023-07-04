@@ -63,3 +63,12 @@ describe('Gilded Rose',() =>{
   });
 });
 
+describe('Gilded Rose',() =>{
+  it('Conjured items degrade twice as quickly', () => {
+    const gildedRose = new GildedRose([new Item('Conjured',5,20)]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).toBe(18);
+
+  });
+});
+
