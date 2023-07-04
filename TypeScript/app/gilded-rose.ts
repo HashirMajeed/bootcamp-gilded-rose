@@ -20,6 +20,7 @@ export class GildedRose {
   updateQuality() {
 
     for (let i = 0; i < this.items.length; i++) {
+      if (this.items[i].name.includes("Sulfuras")) continue;
       let deg = 1;
       if (this.items[i].name == "Aged Brie") {
         deg *= -1;
@@ -35,8 +36,6 @@ export class GildedRose {
           deg = 0;
           this.items[i].quality = 0;
         }
-      } else if (this.items[i].name.includes("Sulfuras")) {
-        deg = 0;
       } else if (this.items[i].name.includes("Conjured")) {
         deg *= 2;
       }
@@ -44,7 +43,7 @@ export class GildedRose {
         deg *= 2;
       }
 
-      this.items[i].quality = this.items[i].name.includes("Sulfuras") ? 80 : Math.min(Math.max(0, this.items[i].quality - deg), 50);
+      this.items[i].quality = Math.min(Math.max(0, this.items[i].quality - deg), 50);
       this.items[i].sellIn--;
     }
 
